@@ -8,19 +8,18 @@ import java.util.Spliterator;
 import java.util.function.UnaryOperator;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
-import ru.spbu.apcyb.svp.tasks.Task2.LinkedList;
-import ru.spbu.apcyb.svp.tasks.Task2.Stack;
+import ru.spbu.apcyb.svp.tasks.task2.*;
 
 /**
  * Тесты для задания 2.
  */
 class Task2Test {
 
-  // LinkedList Tests:
+  // LinearList Tests:
 
   @Test
   void addsElementsToTheEndCorrectly1() {
-    LinkedList a = new LinkedList();
+    LinearList a = new LinearList();
     a.add(1);
     a.add(2);
     a.add(3);
@@ -30,14 +29,14 @@ class Task2Test {
   @Test
   void addsElementsToTheEndCorrectly2() {
     Assertions.assertThrowsExactly(NullPointerException.class, () -> {
-      LinkedList a = new LinkedList();
+      LinearList a = new LinearList();
       a.add(null);
     });
   }
 
   @Test
   void addsElementToSpecifiedPositionCorrectly1() {
-    LinkedList a = new LinkedList();
+    LinearList a = new LinearList();
     a.add(1);
     a.add(2);
     a.add(3);
@@ -48,7 +47,7 @@ class Task2Test {
   @Test
   void addsElementToSpecifiedPositionCorrectly2() {
     Assertions.assertThrowsExactly(NullPointerException.class, () -> {
-      LinkedList a = new LinkedList();
+      LinearList a = new LinearList();
       a.add(1);
       a.add(2);
       a.add(0, null);
@@ -58,7 +57,7 @@ class Task2Test {
   @Test
   void addsElementToSpecifiedPositionCorrectly3() {
     Assertions.assertThrowsExactly(IndexOutOfBoundsException.class, () -> {
-      LinkedList a = new LinkedList();
+      LinearList a = new LinearList();
       a.add(1);
       a.add(2);
       a.add(10, 3);
@@ -67,7 +66,7 @@ class Task2Test {
 
   @Test
   void getsElementCorrectly1() {
-    LinkedList a = new LinkedList();
+    LinearList a = new LinearList();
     a.add(1);
     a.add(2);
     a.add(3);
@@ -77,7 +76,7 @@ class Task2Test {
   @Test
   void getsElementCorrectly2() {
     Assertions.assertThrowsExactly(IndexOutOfBoundsException.class, () -> {
-      LinkedList a = new LinkedList();
+      LinearList a = new LinearList();
       a.add(1);
       a.add(2);
       a.get(10);
@@ -86,13 +85,13 @@ class Task2Test {
 
   @Test
   void sizeIsCorrect1() {
-    LinkedList a = new LinkedList();
+    LinearList a = new LinearList();
     Assertions.assertEquals(0, a.size());
   }
 
   @Test
   void sizeIsCorrect2() {
-    LinkedList a = new LinkedList();
+    LinearList a = new LinearList();
     a.add(1);
     a.add(2);
     a.add(3);
@@ -101,20 +100,20 @@ class Task2Test {
 
   @Test
   void isEmptyWorksCorrectly1() {
-    LinkedList a = new LinkedList();
+    LinearList a = new LinearList();
     Assertions.assertTrue(a.isEmpty());
   }
 
   @Test
   void isEmptyWorksCorrectly2() {
-    LinkedList a = new LinkedList();
+    LinearList a = new LinearList();
     a.add(1);
     Assertions.assertFalse(a.isEmpty());
   }
 
   @Test
   void containsWorksCorrectly1() {
-    LinkedList a = new LinkedList();
+    LinearList a = new LinearList();
     a.add(1);
     a.add(2);
     a.add(3);
@@ -123,7 +122,7 @@ class Task2Test {
 
   @Test
   void containsWorksCorrectly2() {
-    LinkedList a = new LinkedList();
+    LinearList a = new LinearList();
     a.add(1);
     a.add(2);
     a.add(3);
@@ -132,7 +131,7 @@ class Task2Test {
 
   @Test
   void removesSpecificElementCorrectly1() {
-    LinkedList a = new LinkedList();
+    LinearList a = new LinearList();
     a.add(1);
     a.add(2);
     a.add(3);
@@ -142,7 +141,7 @@ class Task2Test {
 
   @Test
   void removesSpecificElementCorrectly2() {
-    LinkedList a = new LinkedList();
+    LinearList a = new LinearList();
     a.add(1);
     a.add(2);
     a.add(3);
@@ -151,7 +150,7 @@ class Task2Test {
 
   @Test
   void removesElementByIndexCorrectly1() {
-    LinkedList a = new LinkedList();
+    LinearList a = new LinearList();
     a.add(1);
     a.add(2);
     a.add(3);
@@ -162,7 +161,7 @@ class Task2Test {
   @Test
   void removesElementByIndexCorrectly2() {
     Assertions.assertThrowsExactly(IndexOutOfBoundsException.class, () -> {
-      LinkedList a = new LinkedList();
+      LinearList a = new LinearList();
       a.add(1);
       a.add(2);
       a.remove(10);
@@ -171,7 +170,7 @@ class Task2Test {
 
   @Test
   void indexOfWorksCorrectly1() {
-    LinkedList a = new LinkedList();
+    LinearList a = new LinearList();
     a.add(1);
     a.add(2);
     Assertions.assertEquals(1, a.indexOf(2));
@@ -179,7 +178,7 @@ class Task2Test {
 
   @Test
   void indexOfWorksCorrectly2() {
-    LinkedList a = new LinkedList();
+    LinearList a = new LinearList();
     a.add(1);
     a.add(2);
     Assertions.assertEquals(-1, a.indexOf(3));
@@ -187,7 +186,7 @@ class Task2Test {
 
   @Test
   void clearWorksCorrectly() {
-    LinkedList a = new LinkedList();
+    LinearList a = new LinearList();
     a.add(1);
     a.add(2);
     a.add(3);
@@ -197,7 +196,7 @@ class Task2Test {
 
   @Test
   void toStringWorksCorrectly() {
-    LinkedList a = new LinkedList();
+    LinearList a = new LinearList();
     a.add(1);
     a.add("two");
     a.add(3L);
@@ -206,7 +205,7 @@ class Task2Test {
 
   @Test
   void addsManyElements() {
-    LinkedList a = new LinkedList();
+    LinearList a = new LinearList();
     for (int i = 0; i < 100; i++) {
       a.add(i);
     }
@@ -216,7 +215,7 @@ class Task2Test {
   @Test
   void unsupportedOperationForContainsAllCheck() {
     Assertions.assertThrowsExactly(UnsupportedOperationException.class, () -> {
-      LinkedList a = new LinkedList();
+      LinearList a = new LinearList();
       boolean flag = a.containsAll(Collections.EMPTY_LIST);
     });
   }
@@ -224,7 +223,7 @@ class Task2Test {
   @Test
   void unsupportedOperationForIteratorCheck() {
     Assertions.assertThrowsExactly(UnsupportedOperationException.class, () -> {
-      LinkedList a = new LinkedList();
+      LinearList a = new LinearList();
       Iterator<Object> it = a.iterator();
     });
   }
@@ -232,7 +231,7 @@ class Task2Test {
   @Test
   void unsupportedOperationForToArray1Check() {
     Assertions.assertThrowsExactly(UnsupportedOperationException.class, () -> {
-      LinkedList a = new LinkedList();
+      LinearList a = new LinearList();
       Object[] arr = a.toArray();
     });
   }
@@ -240,7 +239,7 @@ class Task2Test {
   @Test
   void unsupportedOperationForToArray2Check() {
     Assertions.assertThrowsExactly(UnsupportedOperationException.class, () -> {
-      LinkedList a = new LinkedList();
+      LinearList a = new LinearList();
       Object[] b = new Object[] {};
       Object[] arr = a.toArray(b);
     });
@@ -249,7 +248,7 @@ class Task2Test {
   @Test
   void unsupportedOperationForAddAll1Check() {
     Assertions.assertThrowsExactly(UnsupportedOperationException.class, () -> {
-      LinkedList a = new LinkedList();
+      LinearList a = new LinearList();
       a.addAll(Collections.EMPTY_LIST);
     });
   }
@@ -257,7 +256,7 @@ class Task2Test {
   @Test
   void unsupportedOperationForAddAll2Check() {
     Assertions.assertThrowsExactly(UnsupportedOperationException.class, () -> {
-      LinkedList a = new LinkedList();
+      LinearList a = new LinearList();
       a.addAll(0, Collections.EMPTY_LIST);
     });
   }
@@ -265,7 +264,7 @@ class Task2Test {
   @Test
   void unsupportedOperationForRemoveAllCheck() {
     Assertions.assertThrowsExactly(UnsupportedOperationException.class, () -> {
-      LinkedList a = new LinkedList();
+      LinearList a = new LinearList();
       a.removeAll(Collections.EMPTY_LIST);
     });
   }
@@ -273,7 +272,7 @@ class Task2Test {
   @Test
   void unsupportedOperationForRetainAllCheck() {
     Assertions.assertThrowsExactly(UnsupportedOperationException.class, () -> {
-      LinkedList a = new LinkedList();
+      LinearList a = new LinearList();
       a.retainAll(Collections.EMPTY_LIST);
     });
   }
@@ -281,7 +280,7 @@ class Task2Test {
   @Test
   void unsupportedOperationForReplaceALlCheck() {
     Assertions.assertThrowsExactly(UnsupportedOperationException.class, () -> {
-      LinkedList a = new LinkedList();
+      LinearList a = new LinearList();
       UnaryOperator<Object> b = o -> null;
       a.replaceAll(b);
     });
@@ -290,7 +289,7 @@ class Task2Test {
   @Test
   void unsupportedOperationForSortCheck() {
     Assertions.assertThrowsExactly(UnsupportedOperationException.class, () -> {
-      LinkedList a = new LinkedList();
+      LinearList a = new LinearList();
       Comparator<Object> c = (o1, o2) -> 0;
       a.sort(c);
     });
@@ -299,7 +298,7 @@ class Task2Test {
   @Test
   void unsupportedOperationForSetCheck() {
     Assertions.assertThrowsExactly(UnsupportedOperationException.class, () -> {
-      LinkedList a = new LinkedList();
+      LinearList a = new LinearList();
       a.set(0, 0);
     });
   }
@@ -307,7 +306,7 @@ class Task2Test {
   @Test
   void unsupportedOperationForLastObjectOfCheck() {
     Assertions.assertThrowsExactly(UnsupportedOperationException.class, () -> {
-      LinkedList a = new LinkedList();
+      LinearList a = new LinearList();
       a.lastIndexOf(0);
     });
   }
@@ -315,7 +314,7 @@ class Task2Test {
   @Test
   void unsupportedOperationForListIterator1Check() {
     Assertions.assertThrowsExactly(UnsupportedOperationException.class, () -> {
-      LinkedList a = new LinkedList();
+      LinearList a = new LinearList();
       a.listIterator();
     });
   }
@@ -323,7 +322,7 @@ class Task2Test {
   @Test
   void unsupportedOperationForListIterator2Check() {
     Assertions.assertThrowsExactly(UnsupportedOperationException.class, () -> {
-      LinkedList a = new LinkedList();
+      LinearList a = new LinearList();
       a.listIterator(0);
     });
   }
@@ -331,7 +330,7 @@ class Task2Test {
   @Test
   void unsupportedOperationForSubListCheck() {
     Assertions.assertThrowsExactly(UnsupportedOperationException.class, () -> {
-      LinkedList a = new LinkedList();
+      LinearList a = new LinearList();
       a.subList(0, 1);
     });
   }
@@ -339,7 +338,7 @@ class Task2Test {
   @Test
   void unsupportedOperationForSplitIteratorCheck() {
     Assertions.assertThrowsExactly(UnsupportedOperationException.class, () -> {
-      LinkedList a = new LinkedList();
+      LinearList a = new LinearList();
       Spliterator<Object> s = a.spliterator();
     });
   }
@@ -348,21 +347,21 @@ class Task2Test {
 
   @Test
   void pushAndPeekWorkCorrectly() {
-    Stack s = new Stack();
+    MyStack s = new MyStack();
     s.push(1);
     Assertions.assertEquals(1, s.peek());
   }
 
   @Test
   void pushAndPopWorkCorrectly() {
-    Stack s = new Stack();
+    MyStack s = new MyStack();
     s.push(1);
     Assertions.assertEquals(1, s.pop());
   }
 
   @Test
   void popWorksCorrectly() {
-    Stack s = new Stack();
+    MyStack s = new MyStack();
     s.push(1);
     s.pop();
     Assertions.assertThrowsExactly(EmptyStackException.class, s::pop);
@@ -370,13 +369,13 @@ class Task2Test {
 
   @Test
   void peekWorksCorrectly() {
-    Stack s = new Stack();
+    MyStack s = new MyStack();
     Assertions.assertThrowsExactly(EmptyStackException.class, s::peek);
   }
 
   @Test
   void emptyWorksCorrectly() {
-    Stack s = new Stack();
+    MyStack s = new MyStack();
     s.push(1);
     s.pop();
     Assertions.assertTrue(s.empty());
@@ -385,7 +384,7 @@ class Task2Test {
   @Test
   void unsupportedOperationForSearchCheck() {
     Assertions.assertThrowsExactly(UnsupportedOperationException.class, () -> {
-      Stack s = new Stack();
+      MyStack s = new MyStack();
       s.search(0);
     });
   }
@@ -393,8 +392,8 @@ class Task2Test {
   @Test
   void unsupportedOperationForEqualsCheck() {
     Assertions.assertThrowsExactly(UnsupportedOperationException.class, () -> {
-      Stack s1 = new Stack();
-      Stack s2 = new Stack();
+      MyStack s1 = new MyStack();
+      MyStack s2 = new MyStack();
       boolean flag = s1.equals(s2);
     });
   }
@@ -402,7 +401,7 @@ class Task2Test {
   @Test
   void unsupportedOperationForHashCodeCheck() {
     Assertions.assertThrowsExactly(UnsupportedOperationException.class, () -> {
-      Stack s = new Stack();
+      MyStack s = new MyStack();
       int hash = s.hashCode();
     });
   }
