@@ -52,7 +52,7 @@ public class LinearList implements java.util.List<Object>, Serializable {
   @Override
   public void add(int index, Object element)
       throws IndexOutOfBoundsException, NullPointerException {
-    if (index >= size) {
+    if (index > size) {
       throw new IndexOutOfBoundsException();
     }
     if (element == null) {

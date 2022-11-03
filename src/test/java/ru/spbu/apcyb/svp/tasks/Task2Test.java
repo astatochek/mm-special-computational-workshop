@@ -65,6 +65,16 @@ class Task2Test {
   }
 
   @Test
+  void addsElementToSpecifiedPositionCorrectly4() {
+    LinearList a = new LinearList();
+    a.add(1);
+    a.add(2);
+    a.add(3);
+    a.add(3, 4);
+    Assertions.assertEquals("[1, 2, 3, 4]", a.toString());
+  }
+
+  @Test
   void getsElementCorrectly1() {
     LinearList a = new LinearList();
     a.add(1);
